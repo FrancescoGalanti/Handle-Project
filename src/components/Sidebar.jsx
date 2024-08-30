@@ -2,7 +2,7 @@ import PlusIcon from "./Icons/PlusIcon";
 import Button from "./UI/Button";
 
 
-export default function Sidebar({handleAddProject}) {
+export default function Sidebar({handleAddProject,projects,handleSetActiveProjects,activeProject}) {
 
   // function handleAddProject(){
   //   console.log("add a new project")
@@ -20,6 +20,10 @@ export default function Sidebar({handleAddProject}) {
         <PlusIcon className="size-4" />
         add Project
       </Button>
+
+      <ul>{projects.map(element => (
+        <li className={`cursor-pointer ${activeProject && element.id === activeProject.id ? "text-primary" : ""}`} onClick={() => handleSetActiveProjects(element)} key={`sidebar-projects-${element.id}`}>{element.title}</li>
+      ))}</ul>
    </aside>
   )
 }

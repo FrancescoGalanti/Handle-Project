@@ -1,9 +1,10 @@
 
 
-export default function Main() {
+export default function Main({children}) {
   return (
-    <main className="flex m-auto">
-      <h1>main</h1>
+    <main className=" px-8 py-4 grow">
+     
+     {children}
     </main>
   )
 }
